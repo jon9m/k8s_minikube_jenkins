@@ -25,10 +25,10 @@ public class MovieController {
     private String serverAddress;
 
     @GetMapping(value = "/people", produces = "application/json")
-    public String getResponse() {
+    public String getAstronauts() {
         try {
             serverAddress = String.valueOf(InetAddress.getLocalHost());
-            logger.debug("Inside getResponse method");
+            logger.debug("Inside getAstronauts method");
             ResponseEntity<Spacedude> exchange = restTemplate.exchange("http://api.open-notify.org/astros.json", HttpMethod.GET, null, Spacedude.class);
             logger.info("Getting people in the space");
             Objects.requireNonNull(exchange.getBody()).setMeta(new Meta(serverAddress));
