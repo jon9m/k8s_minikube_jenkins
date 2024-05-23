@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,12 +16,16 @@ import java.net.InetAddress;
 import java.util.Objects;
 
 @RestController
+//@EnableConfigurationProperties(Config.class)
 public class MovieController {
 
     Logger logger = LogManager.getLogger(MovieController.class);
 
     @Autowired
     RestTemplate restTemplate;
+
+    @Autowired
+    private Config config;
 
     private String serverAddress;
 
@@ -37,6 +42,18 @@ public class MovieController {
             logger.error("Error {}", e.getMessage());
         }
         return "no result";
+    }
+
+    @GetMapping(value = "/status/up")
+    public void setIssStatusUp() {
+        logger.debug("************* SET STATUS -> UP");
+        config.setStatus("up");
+    }
+
+    @GetMapping(value = "/status/down")
+    public void setIssStatusDown() {
+        logger.debug("************* SET STATUS -> DOWN");
+        config.setStatus("down");
     }
 
 }
