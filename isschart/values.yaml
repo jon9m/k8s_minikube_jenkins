@@ -73,13 +73,13 @@ resources:
 
 livenessProbe:
   httpGet:
-    path: /iss/actuator/health/liveness
+    path: /iss/actuator/health
     port: http
   initialDelaySeconds: 3
   periodSeconds: 3
 readinessProbe:
   httpGet:
-    path: /iss/actuator/health/readiness
+    path: /iss/actuator/health
     port: http
   initialDelaySeconds: 15
   periodSeconds: 10
