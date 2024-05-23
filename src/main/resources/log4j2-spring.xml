@@ -27,5 +27,11 @@
             <AppenderRef ref="console" />
             <AppenderRef ref="splunkhttp" />
         </Root>
+        <logger name="org.springframework" level="debug">
+            <AppenderRef ref="console"/>
+        </logger>
+        <logger name="com.mmk" level="debug">
+            <AppenderRef ref="console"/>
+        </logger>
     </Loggers>
 </Configuration>
