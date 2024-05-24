@@ -22,15 +22,14 @@
     </Appenders>
 
     <Loggers>
-        <!-- LOG everything at INFO level -->
-        <Root level="info">
+        <Root level="error">
             <AppenderRef ref="console" />
-            <AppenderRef ref="splunkhttp" />
+<!--            <AppenderRef ref="splunkhttp" />-->
         </Root>
-        <logger name="org.springframework" level="debug">
+        <logger name="org.springframework" level="info" additivity="false">
             <AppenderRef ref="console"/>
         </logger>
-        <logger name="com.mmk" level="debug">
+        <logger name="com.mmk" level="debug" additivity="false">
             <AppenderRef ref="console"/>
         </logger>
     </Loggers>
