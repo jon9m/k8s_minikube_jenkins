@@ -3,11 +3,9 @@ package com.mmk.restapi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-//@EnableConfigurationProperties
 public class ExternalServiceHealthIndicator implements HealthIndicator {
 
     @Autowired
