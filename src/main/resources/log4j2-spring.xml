@@ -7,8 +7,8 @@
         </Console>
         <SplunkHttp
                 name="splunkhttp"
-                url="http://localhost:8088"
-                token="7fad9e93-418e-42a9-93dc-de5caa565c73"
+                url="https://prd-p-i49km.splunkcloud.com:8088"
+                token="5ca4d7b1-c519-434d-8e10-80b5645e6944"
                 host="localhost"
                 index="iss_people_index"
                 type="raw"
@@ -24,13 +24,14 @@
     <Loggers>
         <Root level="error">
             <AppenderRef ref="console" />
-<!--            <AppenderRef ref="splunkhttp" />-->
         </Root>
-        <logger name="org.springframework" level="info" additivity="false">
+        <logger name="org.springframework" level="debug" additivity="false">
             <AppenderRef ref="console"/>
+<!--            <AppenderRef ref="splunkhttp" />-->
         </logger>
         <logger name="com.mmk" level="debug" additivity="false">
             <AppenderRef ref="console"/>
+<!--            <AppenderRef ref="splunkhttp" />-->
         </logger>
     </Loggers>
 </Configuration>
